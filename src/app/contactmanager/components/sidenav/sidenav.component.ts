@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Direction } from '@angular/cdk/bidi';
+
 
 const SMALL_WIDTH_BREAKPOINT = 720;
 
@@ -18,13 +20,24 @@ export class SidenavComponent implements OnInit {
   public isScreenSmall!: boolean;
 
   users!: Observable<User[]>;
+  isDarkTheme: boolean = false;
+  dir: Direction = 'ltr';
 
   constructor(private breakpointObserver: BreakpointObserver,
               private userService: UserService,
-              private router: Router) { }
+              private router: Router) {}
+
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+
+  toggleTheme() {
+this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir() {
+    this.dir = this.dir == "ltr" ? "rtl": "ltr";
+  }
 
   ngOnInit(): void {
     this.breakpointObserver

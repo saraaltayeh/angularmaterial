@@ -33,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
+
 const routes: Routes = [
   {path: "", component: ContactmanagerAppComponent,
 children:[
@@ -76,7 +77,8 @@ children:[
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
   ],
   providers: [
     UserService
